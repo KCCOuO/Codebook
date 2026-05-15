@@ -5,8 +5,6 @@ using namespace std;
 #define pii pair<int, int>
 #define F first
 #define S second
-
-
 mt19937 rnd(time(0));
 const int MAXN = 2e5 + 5;
 int left_node[MAXN], right_node[MAXN], priority[MAXN], sz[MAXN], node_cnt = 0, root = 0;
@@ -31,7 +29,6 @@ void split(int i, int l, int r, int rank)
     }
     up(i);
 }
-
 int merge(int l, int r)
 {
     if(l == 0 or r == 0) return l + r;
@@ -68,16 +65,13 @@ int main()
     }
     while(m--){
         int a, b;
-        cin >> a >> b;
-
+        cin >> a >> b
         split(root, 0, 0, b);
         int lm = right_node[0];
         int r = left_node[0];
-
         split(lm, 0, 0, a - 1);
         int l = right_node[0];
-        int m = left_node[0];
-        
+        int m = left_node[0];    
         root = merge(merge(l, r), m);
     }
     out(root);
