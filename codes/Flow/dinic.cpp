@@ -2,13 +2,14 @@ struct Dinic{
     struct Edge{
         int to, cap, rev;
     };
-    vector<Edge> adj[505];
+    vector<vector<Edge>> adj;
     vector<int> level, ptr;
     int n;
     Dinic(int _n){
         n = _n;
         level.resize(n + 1);
         ptr.resize(n + 1);
+        adj.resize(n + 1);
     }
     void addedge(int u, int v, int w){
         adj[u].pb({v, w, adj[v].size()});
