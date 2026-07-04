@@ -7,6 +7,8 @@ struct Dinic{
     int n;
     Dinic(int _n){
         n = _n;
+        level.resize(n + 1);
+        ptr.resize(n + 1);
     }
     void addedge(int u, int v, int w){
         adj[u].pb({v, w, adj[v].size()});
