@@ -65,7 +65,7 @@ int main()
     }
     while(m--){
         int a, b;
-        cin >> a >> b
+        cin >> a >> b;
         split(root, 0, 0, b);
         int lm = right_node[0];
         int r = left_node[0];
