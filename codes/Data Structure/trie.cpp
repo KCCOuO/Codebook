@@ -25,3 +25,32 @@ void insert(int x, int id)
         trie[u].max_idx = max(trie[u].max_idx, id);
     }
 }
+
+// 減少空間的存法
+struct Edge {
+    int to, nxt;
+    char c;
+};
+struct Node {
+    int head = -1;
+    // 放節點要存的資訊
+};
+vector<Node> trie;
+vector<Edge> edges;
+int get_child(int u, char c){
+    for(int e = trie[u].head; e != -1; e = edges[e].nxt){
+        if(edges[e].c == c) return edges[e].to;
+    }
+    return -1;
+}
+int nxt_child(int u, char c){
+    int v = get_child(u, c);
+    if(v != -1) return v;
+ 
+    v = trie.size();
+    trie.emplace_back();
+ 
+    edges.push_back({v, trie[u].head, c});
+    trie[u].head = (int)edges.size() - 1;
+    return v;
+}
