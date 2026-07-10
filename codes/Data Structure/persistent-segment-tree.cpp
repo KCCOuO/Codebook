@@ -22,7 +22,7 @@ int query(int node, int l, int r, int ql, int qr)
 }
 int get_kth(int node_l, int node_r, int l, int r, int k)
 {
-    // 區間第k小
+    //原陣列位置區間(node_l, node_r]第k小
     /*
     if(l == r) return l;
     int mid = (l + r) >> 1;
