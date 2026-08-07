@@ -4,7 +4,7 @@ struct Line{
         return k * x + b;
     }
 };
-Line tree[(int)1e6];
+Line tree[(int)1e6]; //維護最大值
 bool has_line[(int)1e6];
 void insert(int node, int l, int r, Line new_line)
 {
