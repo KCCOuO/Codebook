@@ -4,6 +4,10 @@ struct point {
     point operator - (const point& b) const { return point(x - b.x, y - b.y); }
     point operator + (const point& b) const { return point(x + b.x, y + b.y); }
     point operator * (double k) const { return point(x * k, y * k); }
+    bool operator < (const point &b) {
+        if (x != b.x) return x < b.x;
+        return y < b.y;
+    }
 };
 double cross(point a, point b) {return a.x * b.y - a.y * b.x;}
 // 直線ab與直線cd的交點
