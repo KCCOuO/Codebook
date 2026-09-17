@@ -1,4 +1,3 @@
-// 2.8 EBCC [12a170]  0-indexed, bel[] = 所屬邊雙編號
 struct EBCC { // CF/contest/1986/pF
     int n, cur, cnt;
     vector<vector<int>> adj;
