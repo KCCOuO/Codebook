@@ -1,6 +1,3 @@
-// 4.2 Min Cut [d41d8c]
-// 需搭配 Salmon 4.1 Dinic<T>（d.g[u] = 邊編號、d.e[id] = {to, f, cap}、d.work(s, t)）
-// 0-indexed, s = 0, t = n - 1, 輸出割邊 (1-indexed)
 void minCut(int n, int m, Dinic<int> d) {
     int ans = d.work(0, n - 1);
     vector<int> vis(n);
