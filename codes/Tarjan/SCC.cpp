@@ -1,4 +1,3 @@
-// 2.6 SCC [3ac1cb]  0-indexed, bel[] = 所屬 SCC 編號（逆拓撲序）
 struct SCC {
     int n, cur, cnt;
     vector<vector<int>> adj;
