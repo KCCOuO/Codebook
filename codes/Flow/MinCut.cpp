@@ -2,7 +2,7 @@ void minCut(int n, int m, Dinic<int> d) {
     int ans = d.work(0, n - 1);
     vector<int> vis(n);
     auto dfs = [&](auto self, int u) -> void {
-        if (vis[u]) return; // 原文為 continue，lambda 內無法編譯，改為 return
+        if (vis[u]) return;
         vis[u] = 1;
         for (int id : d.g[u]) {
             auto [to, f, cap] = d.e[id];
