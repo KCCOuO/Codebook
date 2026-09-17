@@ -1,22 +1,17 @@
-void minCut(int n, int m, Dinic<int> d) {
-    int ans = d.work(0, n - 1);
-    vector<int> vis(n);
+int min_cut(Dinic &d, vector<array<int, 3>> &edges){
+    int ans = d.compute_max_flow();
+    int n = d.n;
+    vector<int> vis(n + 1);
     auto dfs = [&](auto self, int u) -> void {
-        if (vis[u]) return;
+        if(vis[u]) return;
         vis[u] = 1;
-        for (int id : d.g[u]) {
-            auto [to, f, cap] = d.e[id];
-            if (cap - f > 0) self(self, to);
-        }
+        for(auto &e : d.adj[u])
+            if(e.cap > 0) self(self, e.to);
     };
-    dfs(dfs, 0);
-    for (int i = 0; i < n; i++) {
-        if (!vis[i]) continue;
-        for (int id : d.g[i]) {
-            if (id & 1) continue;
-            auto e = d.e[id];
-            if (!vis[e.to])
-                cout << i + 1 << " " << e.to + 1 << "\n";
-        }
+    dfs(dfs, 1);
+    for(auto [u, v, w] : edges){
+        if(w > 0 and vis[u] and !vis[v])
+            cout << u << " " << v << "\n";
     }
+    return ans;
 }
