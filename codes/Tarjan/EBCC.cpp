@@ -54,7 +54,6 @@ struct EBCC { // CF/contest/1986/pF
             g.siz[bel[i]]++;
             for (auto j : adj[i]) {
                 if (bel[i] < bel[j]) {
-                    // ↓ 以下照片被截斷，為補寫
                     g.edges.emplace_back(bel[i], bel[j]);
                 } else if (bel[i] == bel[j] && i < j) {
                     g.cnte[bel[i]]++;
